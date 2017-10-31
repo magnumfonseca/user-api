@@ -31,9 +31,9 @@ ActiveRecord::Schema.define(version: 20171031171638) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "addresses_id"
-    t.index ["addresses_id"], name: "index_users_on_addresses_id"
+    t.bigint "address_id"
+    t.index ["address_id"], name: "index_users_on_address_id"
   end
 
-  add_foreign_key "users", "addresses", column: "addresses_id"
+  add_foreign_key "users", "addresses"
 end
