@@ -1,21 +1,20 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '5.1.4'
+gem 'active_model_serializers'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.7'
+gem 'rails', '5.1.4'
 gem 'rest-client'
-gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '>= 3.5.0'
   gem 'factory_girl_rails'
-
+  gem 'rspec-rails', '>= 3.5.0'
 end
 
 group :development do
@@ -25,9 +24,9 @@ group :development do
 end
 
 group :test do
-  gem 'shoulda-matchers', '2.8.0', require: false
   gem 'database_cleaner'
   gem 'rubocop', '0.46.0', require: false
+  gem 'shoulda-matchers', '2.8.0', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

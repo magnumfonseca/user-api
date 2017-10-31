@@ -2,13 +2,12 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 
-abort("The Rails environment is running in production mode!") if Rails.env.production?
+abort('The Rails is running in production mode!') if Rails.env.production?
 
 require 'rspec/rails'
 require 'spec_helper'
 require 'shoulda/matchers'
 require 'database_cleaner'
-
 
 ActiveRecord::Migration.maintain_test_schema!
 
