@@ -1,5 +1,7 @@
 Documentation:
   Enabled: false
+Style/DotPosition:
+  EnforcedStyle: trailing
 AllCops:
   TargetRubyVersion: 2.2
   Includes:

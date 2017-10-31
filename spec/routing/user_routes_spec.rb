@@ -11,6 +11,10 @@ RSpec.describe 'routes to the users controller', type: :routing do
 
   it 'should not route' do
     expect(get: "#{bad_url}/v1/users").
-      not_to route_to(controller: 'api/v1/users', action: 'index', subdomain: 'api')
+      not_to route_to(
+        controller: 'api/v1/users',
+        action: 'index',
+        subdomain: 'api'
+      )
   end
 end
