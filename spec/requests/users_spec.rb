@@ -73,4 +73,40 @@ RSpec.describe 'Users API', type: :request do
       it { expect { subject }.to change(User, :count).by(0) }
     end
   end
+
+  describe 'PUT #update' do
+    let(:user) { create :user }
+
+    subject { put "/v1/users/#{user.id}", params: { user: user_params } }
+
+    context 'with valid params' do
+      let(:user_params) { { name: 'Beltrano' } }
+
+      it 'updates requested record' do
+        subject
+        expect(user.reload.name).
+          to eq(user_params[:name])
+
+        expect(response.body).
+          to eq(
+            { user: UserSerializer.new(user.reload).attributes }.to_json
+          )
+      end
+    end
+
+    context 'changing address', :vcr do
+      let(:user_params) { { name: 'Beltrano', zipcode: '01311200' } }
+
+      it 'updates requested record' do
+        subject
+        expect(user.reload.name).
+          to eq(user_params[:name])
+
+        expect(response.body).
+          to eq(
+            { user: UserSerializer.new(user.reload).attributes }.to_json
+          )
+      end
+    end
+  end
 end
