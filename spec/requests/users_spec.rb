@@ -43,4 +43,34 @@ RSpec.describe 'Users API', type: :request do
       expect { subject }.to change(User, :count).by(-1)
     end
   end
+
+  describe 'POST #create' do
+    let(:user_params) do
+      {
+        user: {
+          name: 'Fulano',
+          email: 'xpto@teste.com',
+          zipcode: zipcode
+        }
+      }
+    end
+
+    subject { post '/v1/users', params: user_params }
+
+    context 'address already persisted' do
+      let(:address) { create :address, zipcode: '09080321' }
+      let(:zipcode) { address.zipcode }
+
+      it { is_expected.to eq 201 }
+
+      it { expect { subject }.to change(User, :count).by(1) }
+    end
+
+    context 'address invalid', :vcr do
+      let(:zipcode) { '09426329' }
+
+      it { is_expected.to eq 422 }
+      it { expect { subject }.to change(User, :count).by(0) }
+    end
+  end
 end

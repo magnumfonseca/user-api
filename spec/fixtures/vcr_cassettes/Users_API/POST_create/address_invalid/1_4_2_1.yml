@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://viacep.com.br/ws/09426329/json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - "*/*"
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - rest-client/2.0.2 (linux-gnu x86_64) ruby/2.3.4p301
+      Host:
+      - viacep.com.br
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.12.1
+      Date:
+      - Wed, 01 Nov 2017 01:08:38 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - GET, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type, X-Request-With, X-Requested-By
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Max-Age:
+      - '86400'
+      Expires:
+      - Wed, 01 Nov 2017 02:08:38 GMT
+      Cache-Control:
+      - max-age=3600
+      - public
+    body:
+      encoding: UTF-8
+      string: |-
+        {
+          "erro": true
+        }
+    http_version: 
+  recorded_at: Wed, 01 Nov 2017 01:08:39 GMT
+recorded_with: VCR 3.0.3
