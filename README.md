@@ -15,11 +15,15 @@
 
 
 ## TASK LIST
-
 * Setup da aplicação
 * Configurar rotas
 * Criar model do usuário
-* Criar CRUD Json
+* Criar model de endereço
 * Criar serviço de busca de endereço por CEP
+* Criar CRUD Json
 
 
+## TODO LIST
+* Tornar configurável o endpoint de busca de endereços
+* Colocar o cache dos endereços em memcached e deixar de buscar no banco
+* colocar swagger para documentar a api
