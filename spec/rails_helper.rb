@@ -8,6 +8,8 @@ require 'rspec/rails'
 require 'spec_helper'
 require 'shoulda/matchers'
 require 'database_cleaner'
+require 'vcr'
+require 'webmock/rspec'
 
 ActiveRecord::Migration.maintain_test_schema!
 
@@ -24,4 +26,6 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
 
   config.include FactoryGirl::Syntax::Methods
+
+  config.extend VCR::RSpec::Macros
 end

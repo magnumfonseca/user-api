@@ -27,6 +27,8 @@ group :test do
   gem 'database_cleaner'
   gem 'rubocop', '0.46.0', require: false
   gem 'shoulda-matchers', '2.8.0', require: false
+  gem 'vcr'
+  gem "webmock"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

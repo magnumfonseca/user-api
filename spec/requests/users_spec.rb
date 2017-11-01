@@ -38,10 +38,9 @@ RSpec.describe 'Users API', type: :request do
   describe 'DELETE #destroy' do
     subject { delete "/v1/users/#{user.id}" }
 
+    it { is_expected.to eq(204) }
     it 'removes requested record' do
       expect { subject }.to change(User, :count).by(-1)
     end
-
-    it { is_expected.to eq(204) }
   end
 end
